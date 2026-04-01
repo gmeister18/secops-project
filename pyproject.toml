@@ -1,0 +1,36 @@
+[project]
+name = "secops-project"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "gmeister18",email = "meisterguilherme8@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "secops_project", from = "src"}]
+
+[tool.bandit]
+exclude_dirs = [".venv", ".git", "__pycache__", "tests"]
+skips = []
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.safety]
+ignore = []
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "bandit (>=1.9.4,<2.0.0)",
+    "safety (>=3.7.0,<4.0.0)",
+    "ruff (>=0.15.7,<0.16.0)"
+]
